@@ -3,6 +3,9 @@
     margin:0;
     
 }
+body{
+    min-width: 1300px;
+}
 header{
     position: relative;
     float: left;
@@ -139,6 +142,7 @@ nav{
      display: flex;
      padding-left: 76px;
      flex-wrap: wrap;
+     overflow-y: scroll;
 
  }
  .navCol>div{
