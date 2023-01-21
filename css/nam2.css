@@ -1,45 +1,46 @@
 *{
     padding: 0;
     margin:0;
-    
+    --width-nav:470px;
 }
 body{
     min-width: 1300px;
 }
 header{
-    position: relative;
-    float: left;
+   
+    display: flex;
     background-color:#e9eae2;
-    width: 68%;
+    flex: 3 auto;
     height:670px;
     
+}
+nav{
+    flex: 2 auto;
+    justify-content: end;
 }
 .headerDiv{
     width:550px;
     
-    height:670px;
+
+    height: 670px;
+    align-self: flex-end;
+    justify-content: end;
+    display: flex;
 }
-.headerDiv:nth-child(1){
-    float: left;
-    
-   
-}
-.headerDiv:nth-child(2){
-    float: right;
-    
-}
+
+
 .truo{
    position: absolute;
     left: 190px;
     width: 336px;
     height: 280px;
- background-image: url(картинки2/Без-имени-1.png);
+ background-image: url(../image/Без-имени-1.png);
 background-size: 100%;
 background-repeat:no-repeat;
 z-index: 1;
 }
 .kaps{
-    background-image: url(картинки2\2.png);
+    background-image: url(../image\2.png);
    
     
     width: 100%;
@@ -82,12 +83,21 @@ z-index: 1;
 .headerDiv:nth-child(2){
     position: relative;
 }
+.ob_img{
+    background: url(../image/font.png);
+    background-size: contain;
+    opacity: .9; 
+    filter: contrast(0.7);
+}
 .cart{
     position:absolute;
     left: 200px;
+    
     top: 156px;
+    
     background-color: gray;
-    opacity: .5; 
+    
+    
     
     
     border-radius: 100%;
@@ -95,15 +105,19 @@ z-index: 1;
     height: 60px;
     
 }
+.container_font{
+    background-color: #f5f5f5;
+    width: 100%;
+}
 .headerDiv:nth-child(2)>p{
     position:absolute;
     left: 150px;
     top: 228px;
-    background-image: url(картинки2\6.png);
+    background-image: url(../image\6.png);
     color: #adada7;
     
     font-family: 'Roboto';
-   font-weight: 900;
+    font-weight: 900;
    
 }
 .headerDiv:nth-child(2)>h4{
@@ -111,6 +125,7 @@ z-index: 1;
     text-align: center;
     left: 52px;
     top: 288px;
+    /* z-index: 2; */
     font-size: 60px;
     letter-spacing: 2px;
     color: #000;
@@ -119,13 +134,28 @@ z-index: 1;
     /* letter-spacing: 10px; */
     line-height:1.1;
 }
-
+.container{
+    background-color: #e9eae2;
+    width: 100%;
+    display: flex;
+    position: relative;
+    /* flex-direction: ; */
+}
  /* НАВИГАТОР */
 nav{
     width: 32%;
     background-color:#e9eae2;
     float: right;
+    /* transform: translateX(29vw); */
     display: flex;
+    transition:  1s transform  ease;
+}
+nav:hover{
+    transform: translateX(0px);
+}
+nav.active{
+  transform: translateX(-200px);
+
 }
  nav>div{
  
@@ -133,30 +163,49 @@ nav{
  height: 670px;
  }
  .navTy{
-     flex-basis: 470px;
-     display: flex;
+     flex-basis: var(--width-nav);
+     /* display: flex; */
+     display: none;
+     position: absolute;
      flex-direction: column;
-     background-image: url(картинки2/221.png)
+     width: 471px;
+     /* display: none; */
+     z-index: 3;
+     background-image: url(../image/221.png)
+ }
+ .navTy.active{
+    display: block;
+    transform: translate(195px, 0px);
  }
  .navCol{
      display: flex;
-     padding-left: 76px;
+     padding: 0 19px;
      flex-wrap: wrap;
-     overflow-y: scroll;
+     z-index: 3;
+   
 
  }
+ .container__nav-p{
+    display: flex;
+    justify-content: center;
+    height: 100px;
+    align-items: center;
+    text-align: center;
+ }
  .navCol>div{
-     margin: 4px;
+     /* margin: 4px; */
      width: 150px;
      height:100px;
      color:#38aca0;
-    padding-top: 14px;
+    /* padding-top: 14px; */
      text-align: center;
      font-family: 'Roboto', sans-serif;
      font-weight: 900;
-     display: grid;
-     justify-items: center;
-     align-items: flex-end;
+     /* display: grid; */
+     /* justify-items: center; */
+     /* align-items: flex-end; */
+     flex: 1 150px;
+     padding-top: 20px;
      
   
  }
@@ -170,14 +219,23 @@ nav{
  #crex{
      font-family:'Roboto', sans-serif;
      font-weight: 300 ;
-     left:95%;
+     left:90%;
      top:30px;
      float: right;
      position: absolute;
      color:#37a59b;
-     width: 10px;
-     height: 10px;
-     background-image: url(картинки2\222.png);
+     width: 15px;
+     height: 16px;
+     font-size:14px;
+     background-image: url(../image\222.png);
+     transition: color 1s , font-size 1s;
+ }
+ #crex:hover{
+    /* box-shadow: 1px 2px 6px #fff; */
+    color: #fff;
+    font-size: 17px;
+    cursor: pointer;
+   
  }
  .navCol>div:hover{
      background-color: #86d8cd;
@@ -186,9 +244,7 @@ nav{
  #crexP{
   color: #979797;
   /* float: left;  */
-  margin-top: 78px;
-  margin-left: 38px;
-  margin-bottom: 5px;
+ 
  }
 
  .icon{
@@ -201,16 +257,16 @@ nav{
  }
  .icon:nth-child(1){ 
      margin-top: 90px;
-    background-image: url(картинки2/nav1.png);
+    background-image: url(../image/nav1.png);
    background-repeat: no-repeat;
    
 }
  .icon:nth-child(2){
-     background-image: url(картинки2/nav2.png);
+     background-image: url(../image/nav2.png);
     background-repeat: no-repeat;
  }
  .icon:nth-child(3){
-    background-image: url(картинки2/nav3.png);
+    background-image: url(../image/nav3.png);
    background-repeat: no-repeat;
 }
 .icon:hover{
@@ -232,22 +288,26 @@ nav{
     float: left;
     font-family: 'Robot';
     font-weight: 400;
+    display: flex;
     position: relative;
-    
-    background-image: url(картинки2/31.png);
+    background-image: url(../image/31.png);
     background-repeat: no-repeat;
-    background-size: 100%;
-    width:25%;
+    background-size: cover;
+    background-position-x: right;
+   
+    width: 25%;
     height: 400px;
+    flex-direction: column;
+    justify-content: center;
 }
 .blueBlock>p>span{
    font-size:15px;
 }
 .blueBlock>p{
     text-transform: uppercase;
-    padding-right: 40px;
+    
    text-align: center;
-   padding-top:220px ;
+  
    font-size: 20px;
    font-family: 'Robot';
     font-weight: 400;
@@ -261,7 +321,7 @@ nav{
 .whilBlock{
     position: relative;
    display: flex;
-    float: right;
+    
     width: 74.74%;
     height: 400px;
     overflow: hidden;
@@ -284,7 +344,7 @@ nav{
     margin-right: 5px;
     float: left;
     display: block;
-    background-image: url(картинки2/34.png);
+    background-image: url(../image/34.png);
     background-size: 100%;
     background-repeat: no-repeat;
     background-position:center ;
@@ -337,7 +397,7 @@ nav{
     float: left;
     width:100%;
     height:330px;
-    background-image: url(картинки2/sofa.png);
+    background-image: url(../image/sofa.png);
     background-size: 100%;
     background-position-y: -480px;
     background-repeat:no-repeat;
@@ -362,7 +422,7 @@ nav{
    
 }
 .sofaBlock>div>p:nth-child(1){
-    background-image:url(картинки2/rom.png);
+    background-image:url(../image/rom.png);
     background-repeat: no-repeat;
     background-size: 100%;
     width: 40px;
@@ -383,6 +443,7 @@ nav{
     float: left;
     display: flex;
     height: 400px;
+    background-color: #f4f4f4;
     width:100%;
     text-align: center;
 }
@@ -414,7 +475,7 @@ nav{
    
    margin-right: 10px;
     float: left;
-    background-image: url(картинки2/2222.png);
+    background-image: url(../image/2222.png);
     background-position: center;
     background-repeat: no-repeat;
     width: 16px;
@@ -428,7 +489,7 @@ nav{
 .Layer28{
     float: left;
     position: absolute;
-    background-image: url(картинки2/2221.png);
+    background-image: url(../image/2221.png);
     background-position: center;
     background-repeat: no-repeat;
     width: 260px;
@@ -450,9 +511,7 @@ nav{
     width:60px;
     height:60px;
     background-color: #808080;
-    background-image: url(картинки2/2223.png);
-    background-position: center;
-    background-repeat: no-repeat;
+  
 }
 .block-three-box{
     margin-top: 47%;
@@ -474,7 +533,7 @@ nav{
     flex:1;
     position: relative;
     overflow: hidden;
-    background-image: url(картинки2/2225.png);
+    background-image: url(../image/2225.png);
     background-position: 100%;
     background-size:100%;
     
@@ -487,7 +546,7 @@ nav{
     margin-left: 150px;
 }
 .img{
-    background-image: url(картинки2/2226.png);
+    background-image: url(../image/2226.png);
     background-position: center;
     background-repeat: no-repeat;
     width: 100px;
@@ -513,10 +572,14 @@ nav{
     height: 370px;
     overflow: hidden;
 }
+.blueBlock_container-img{
+    text-align: center;
+}
 .Ebony--oneYello{
    width: 400px;
+   background-position: right;
 
-   background-image: url(картинки2/fon.png);
+   background-image: url(../image/fon.png);
      
    background-repeat: no-repeat;
 }
@@ -535,7 +598,7 @@ nav{
     top: 0;
     width: 120px;
     height: 120px;
-    background-image: url(картинки2/tal.png);
+    background-image: url(../image/tal.png);
     background-position: center;
     background-repeat: no-repeat;
 }
@@ -571,7 +634,7 @@ nav{
     max-width: 400PX;
     margin: 160px auto;
     height: 370px;
-    background-image: url(картинки2/talk.png);
+    background-image: url(../image/talk.png);
     background-position: center;
     background-repeat: no-repeat;
     background-size: 100%;
@@ -601,10 +664,11 @@ nav{
     background-color: rgba(76, 87, 90, 0.479);
     width: 60px;
     height: 60px;
-    background-image: url(картинки2/ta.png);
-    background-position: center;
-    background-repeat: no-repeat;
-}
+    background-image: url(../image/font.png);
+    background-size: contain;
+    opacity: .9;
+    filter: contrast(.7);
+} 
 .Ebony--fourh4{
     margin-top: 10px;
     color: #4e4c4c;
@@ -620,7 +684,7 @@ footer{
     float: left;
     width: 100%;
     height: 400px;
-    background-image: url(картинки2/footer.jpg);
+    background-image: url(../image/footer.jpg);
     background-size:100% ;
     background-position-y:-450px ;
     background-repeat: no-repeat;
@@ -651,4 +715,15 @@ top: 160px;}
     margin-top: 10px;
 }
 
-    
+.container-salt{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+.container-salt img{
+    max-width: 100%;
+}
+.container-salt>div{
+    width: 230px;
+}

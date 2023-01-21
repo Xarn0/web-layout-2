@@ -1,0 +1,25 @@
+@media(max-width:1200px){
+    
+
+    .headerDiv:nth-child(2)>h4{
+        font-size: 40px;
+        left: 0;
+    }
+
+}
+@media(max-width:1400px){
+
+}
+@media(max-width:1000px){
+    .headerDiv:nth-child(2){
+        display: none;
+    }
+}
+@media(max-width:900px){
+    .seagull,.Layer28{
+        display: none;
+    }
+}
+@media(max-width:1200px){}
+@media(max-width:1200px){}
+@media(max-width:1200px){}
